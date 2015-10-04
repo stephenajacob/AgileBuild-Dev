@@ -1,0 +1,37 @@
+GIT Way of Working I follow in Ericsson.
+
+I don't know if any of you watched the video I shared on the moodle forum but I highly recommend it. 
+	It gives a good overview of how GIT works.
+	This will make more sense if you understand how git works.
+
+Always work off the master branch.
+Make your changes and commit them
+	git add
+	git commit -m "..." -> We can talk about commit message format later. I think GitHub has a recommended structure.
+
+Before you push any changes up to our repository in github "rebase" your local master branch.
+git fetch - pulls down all the latest changes but doesn't apply them to your local branches.
+	http://git-scm.com/docs/git-fetch
+git rebase origin/master
+	https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+	This command takes all the new commits on the remote master branch
+	Applies them to your local master branch
+	Then applies your local commits on top of the updated local master branch
+This way whenever you are pushing to the remote the only difference between your local master branch and the remote master branch will be your new commit
+This will remove any merge conflict issues when pushing.
+	This will keep our commit history clean.
+	Reduce the risk of code being overwritten.
+
+What may happen is merge conflicts when you are rebasing your commits locally.
+	git status - will show the files which are in conflict.
+	open the file(s) and fix the conflicts, you may need help from the the person who wrote the conflicting code. See last paragraph.
+	git add file(s)
+	git rebase --continue
+This can be minimzed by us communicating our pushes and everyone rebasing frequently.
+
+Inevitably we will have conflicts, no matter what way we work, we just have to be smart to minimize the impact.
+
+You can find out who commited a line of code in AndroidStudio
+	Firstly, the vcs root needs to be added for the project. A message box will appear in the top right corner when you first open a project that uses git, click "Add root"
+	Open a file, right click the grey vertical bar to the left of the main code editor and select annotate. 
+	This will show who commited each line of code in the file.
