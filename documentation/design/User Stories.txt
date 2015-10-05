@@ -1,0 +1,27 @@
+Rating
+
+As a tourist I want to rate a suggestion given to me so that the app will give more suited suggestions in the future.
+
+The suggestion rating system will be a 5 star rating system from "great suggestion" to "what were you thinking?"
+
+As a tourist I want to rate an activity/food/accommodation I have taken so that the app will give suggestions based on ratings to all tourists in the future
+
+The activity/food/accommodation rating system will be a 5 star rating system: Terrible, Poor, Average, Very good, Excellent
+
+Feedback
+
+As a tourist I want to review an activity/food/accommodation I have taken so that the app can show this to future tourists.
+
+A review will consist of a subject, body, time of visit and a rating.
+
+Filtering
+
+As a tourist I want to be able to filter the list of suggestions by certain criteria so that I can narrow the results.
+
+The criteria for filtering accommodation should be: Type (Hotel, B&B, Hostel, Holiday Rentals), star rating, price per night and tourist ranking
+
+The criteria for filtering food should be: Type (bar, restaurant, fast food), cuisine (Irish, Indian, Chinese, Italian, Lebanese) and tourist ranking
+
+The criteria for filtering activities should be: Type (historical, on the water, active, nature, arts, spa, tours) and tourist ranking
+
+As a tourist I want to be able to sort the suggestions based on a criteria so that I can compare suggestions
