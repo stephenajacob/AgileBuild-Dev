@@ -1,0 +1,28 @@
+
+
+User Preferences
+
+User History
+As a tourist I want my user history of the app taken into account so that I will receive more suited suggestions in the future.
+Success: User history, such as where the tourist may have stayed last should be recorded and taken into account when making suggestions.
+Failure:	 User history is not stored or taken into account when making suggestions.
+-----------------------------------------------------------------------------------------------------------------------
+Food Preferences
+As a tourist I want my food preferences taken into account so that I will receive more suited suggestions in the future.
+Success: The system should take into account and store food preferences on the database.  It should also use the ratings sytem in place to record this information
+Failure:	 User history is not stored or taken into account when making suggestions.
+----------------------------------------------------------------------------------------------------------------
+Musical Preferences
+As a tourist I want my musical preferences taken into account so that I will receive more suited suggestions in the future with regard to music venues.
+Success: The user's musical preferences should be stored on the database and utilised to make appropriate suggestions.  The ratings system should be used to record this information.
+Failure:	 Musical preferences are not stored and/or taken into account when making suggestions.
+----------------------------------------------------------------------------------------------------------------
+Hotels/Accomodation
+As a tourist I want my preferences taken into account so that I will receive more suited suggestions in the future with regard to hotels/accomodation.
+Success: The user's preferences should be stored on the database and utilised to make appropriate suggestions with regard to hotels/accomodation.  The ratings system should be used to record this information.
+Failure:	 Hotel/Accomodation preferences are not stored and/or taken into account when making suggestions.
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
