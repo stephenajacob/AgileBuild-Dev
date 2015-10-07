@@ -4,6 +4,10 @@ US_Rating_0001
 As a tourist I want to rate a suggestion given to me so that I will receive more suited suggestions in the future.
 Success:	rating, activity/food/accommodation and type recorded in database and message displayed to tourist "Thank you, we'll use this to improve our suggestions in the future".
 Failure:	Message is displayed to user "Your rating could not be recorded at this time, please try again later"
+Acceptance Criteria:
+	A tourist gives a suggestion the worst rating. This suggestion does not appear in the list of suggestions again.
+	A tourist gives a suggestion the best rating. Suggestions of this type appear in great numbers in the list of suggestions.
+	
 
 US_Rating_0002
 The suggestion rating system will be a 5 star rating system from "great suggestion" to "what were you thinking?"
@@ -12,6 +16,9 @@ US_Rating_0003
 As a tourist I want to rate an activity/food/accommodation I have taken so that the app will give suggestions based on ratings to all tourists in the future
 Success:	rating, activity/food/accommodation are recorded in database and message displayed to tourist "Thank you, we'll use this information to give tourists better suggestions".
 Failure:	Message is displayed to user "rating could not be recorded at this time"
+Acceptance Criteria:
+	A tourist gives an activity/food/accommodation the worst rating. This activity/food/accommodation is lower in the list for the next tourist.
+	A tourist gives an activity/food/accommodation the best rating. This activity/food/accommodation is higher in the list for the next tourist.
 
 US_Rating_0004
 The activity/food/accommodation rating system will be a 5 star rating system: Terrible, Poor, Average, Very good, Excellent
@@ -22,6 +29,8 @@ US_Feedback_0001
 As a tourist I want to review an activity/food/accommodation I have taken so that the app can show this to future tourists.
 Success:	Review stored in database and message displayed to tourist "Well done, You have successfully reviewed this activity/food/accommodation"
 Failure:	Message is displayed to user "Your review could not be recorded at this time, please try again later"
+Acceptance Criteria:
+	A tourist reviews an activity/food/accommodation. This review is visible the next time the tourist views the activity/food/accommodation.
 
 US_Feedback_0002
 A review will consist of a subject, body, time of visit and a rating.
@@ -32,6 +41,8 @@ US_Filter_0001
 As a tourist I want to be able to filter the list of suggestions by certain criteria so that I can narrow the results.
 Success:	Smaller list of results displayed to tourist.
 Failure:	Full list of results displayed to user and message displayed "Result filtering failed"
+Acceptance Criteria:
+	A tourist opens the list of activity/food/accommodation, note the number of results. Selects some criteria to narrow the result. The list now has less entries. The tourist unselects the criteria and the number of results is back to the previous number
 
 US_Filter_0002
 The criteria for filtering accommodation should be: Type (Hotel, B&B, Hostel, Holiday Rentals), star rating, price per night and tourist ranking
@@ -46,3 +57,5 @@ US_Filter_0005
 As a tourist I want to be able to sort the suggestions based on a criteria so that I can compare suggestions
 Success:	Results sorted in ascending/descending based on criteria selected.
 Failure:	Results not sorted and error message displayed "Results could not be sorted on this criteria"
+Acceptance Criteria:
+	A tourist opens the list of activity/food/accommodation, note the order. The tourist selects a certain criteria to sort on. The order will have changed.
