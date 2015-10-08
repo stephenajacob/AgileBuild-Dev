@@ -1,0 +1,43 @@
+PMD
+What is PMD?
+PMD scans Java source code and looks for potential problems like: 
+* Unused local variables
+* Empty catch blocks
+* Unused parameters
+* Empty 'if' statements
+* Duplicate import statements
+* Unused private methods
+* Classes which could be Singletons
+* Short/long variable and method names
+
+This plugin provides a means to integrate the PMD report into the maven process.
+
+Installation
+
+The maven-pmd-plugin is considered an optional maven-plugin, but the default installation of maven comes with it. There is nothing special you need to do, other than use it.
+
+- To download a different version of the PMD plugin for maven
+
+Starting with the maven-plugin-plugin 1.2, you issue the following command to maven to download the version of your choice.
+$ maven -DgroupId=maven -DartifactId=maven-pmd-plugin -Dtype=plugin -Dversion=1.3 plugin:download
+This command will download the plugin, remove the other versions of the maven-pmd-plugin and make this recently downloaded version immediately available to all projects that depend on maven-pmd-plugin.
+
+Usage
+- How to use it?
+
+The quickest, and easiest way to use the maven-pmd-plugin is to add the maven-pmd-plugin entry to your reports section in your project's project.xml project descriptor.
+
+- Don’t want to use it via the project.xml?
+
+The generated report has to be added manually to the website which is usually done with navigation.xml.
+
+- If you have a large project with many sub-projects, and you want to use the maven-pmd-plugin, but not for a specific sub-project. How can you accomplish this?
+
+Assume that you have generated a DB layer having a few hundreds Java source files. Apart from being curious you don't want to have a PMD report for generated source files. Simply put maven.pmd.enable=false into your project properties for that one sub-project.
+
+- How to disable certain files from being checked by the maven-pmd-plugin?
+
+The maven-pmd-plugin will scan all *.java files in your defined <sourceDirectory> path specified in your project descriptor. 
+Use the maven.pmd.excludes property to exclude certain files from being checked by the maven-pmd-plugin. 
+Lets assume that you have generated a DB layer within your project. Simply put maven.pmd.excludes=**/database/** into your project.properties file to exclude the files in your database directory and below. 
+

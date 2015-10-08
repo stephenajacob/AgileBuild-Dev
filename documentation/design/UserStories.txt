@@ -1,0 +1,10 @@
+User stories for locations' services and what to do - Stephen Jacob
+
+
+*As a user I want to display a map overhead with my current GPS coordinates labeled in the center when I start the application's opening interface so I will know where in Athlone I am.
+
+*As a user I want to enter the name of the attraction into a search engine on the app to zoom over the attraction's GPS coordinates on the interface.
+
+*As a user I want to enter the type of attraction into the app, so to display all the GPS locations of all available respective attractions on a map overhead of Athlone.
+
+*As a user I want to record the coordinates of poular attractions in Athlone, that are entered more than once so to appear on a drop-down list. 
