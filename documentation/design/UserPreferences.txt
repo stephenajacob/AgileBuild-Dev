@@ -9,7 +9,7 @@ Failure:   User history is not stored or taken into account when making suggesti
 -----------------------------------------------------------------------------------------------------------------------
 Food Preferences
 As a tourist I want my food preferences taken into account so that I will receive more suited suggestions in the future.
-Success: The system should take into account and store food preferences on the database.  It should also use the ratings sytem in place to record this information
+Success:  The system should take into account and store food preferences on the database.  It should also use the ratings sytem in place to record this information
 Failure:	 User history is not stored or taken into account when making suggestions.
 ----------------------------------------------------------------------------------------------------------------
 Musical Preferences

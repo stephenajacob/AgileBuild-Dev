@@ -1,7 +1,7 @@
 
 User Profile
 As a tourist I want to be able to create my own profile on the app.
-Success: The system should record the user's name, age, address, gender, phone number, email address on the database.
+Success:  The system should record the user's name, age, address, gender, phone number, email address on the database.
 Failure:	 The system is unable to store the user's details on the database when registering.  The user gets an error message.
 ----------------------------------------------------------------------------------------------------------------
 Logon
