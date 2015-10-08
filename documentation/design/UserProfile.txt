@@ -1,0 +1,19 @@
+
+User Profile
+As a tourist I want to be able to create my own profile on the app.
+Success:  The system should record the user's name, age, address, gender, phone number, email address on the database.
+Failure:	 The system is unable to store the user's details on the database when registering.  The user gets an error message.
+----------------------------------------------------------------------------------------------------------------
+Logon
+As a tourist I want to be able to log on to the app once registered.
+Success: The system should provide the user with the opportunity to choose a password and a username.  The system should recognise these credentials when the user logs on.  These details are stored on the database
+Failure:  The system does not recognise the user's log on credentials when the user attemps to log.  The user gets an error message.
+----------------------------------------------------------------------------------------------------------------
+Logoff
+As a tourist I want to be able to log off the app.
+Success: The system provide the user with the option to log off the app.
+Failure:	 The user is unable to log off the system.  The user gets an error message.
+----------------------------------------------------------------------------------------------------------------
+
+
+
