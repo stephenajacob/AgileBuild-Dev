@@ -5,7 +5,7 @@ User Preferences
 User History
 As a tourist I want my user history of the app taken into account so that I will receive more suited suggestions in the future.
 Success: User history, such as where the tourist may have stayed last should be recorded and taken into account when making suggestions.
-Failure:	 User history is not stored or taken into account when making suggestions.
+Failure:   User history is not stored or taken into account when making suggestions.
 -----------------------------------------------------------------------------------------------------------------------
 Food Preferences
 As a tourist I want my food preferences taken into account so that I will receive more suited suggestions in the future.

@@ -7,7 +7,7 @@ Failure:	 The system is unable to store the user's details on the database when 
 Logon
 As a tourist I want to be able to log on to the app once registered.
 Success: The system should provide the user with the opportunity to choose a password and a username.  The system should recognise these credentials when the user logs on.  These details are stored on the database
-Failure:	 The system does not recognise the user's log on credentials when the user attemps to log.  The user gets an error message.
+Failure:  The system does not recognise the user's log on credentials when the user attemps to log.  The user gets an error message.
 ----------------------------------------------------------------------------------------------------------------
 Logoff
 As a tourist I want to be able to log off the app.
