@@ -1,0 +1,26 @@
+Running junit tests in maven build
+	To write & execute junit tests in our maven build we need a few things
+		The junit dependency to have the junit code.
+		the maven-surefire-plugin to execute the junit tests.
+
+junit dependency
+	Add the following xml to the dependency section of our pom
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+
+maven-surefire-plugin
+	https://maven.apache.org/surefire/maven-surefire-plugin/
+	Add the xml in the usage page to our pom
+
+
+Publishing junit reports in Jenkins
+	We need to install the junit jenkins plugin to allow Jenkins to read the junit results and generate a report
+	http://ec2-52-18-72-132.eu-west-1.compute.amazonaws.com:8081/
+	Manage Jenkins -> Manage Plugins -> Available -> CTRL+F and search for the plugin you want -> Tick the box beside it and click "Download now and install after restart"
+	SSH onto AWS EC2 instance and restart Jenkins
+		The instructions to ssh onto an AWS EC2 instance are in my other tutorial
+		once on the server run "sudo service jenkins restart"
+	In this case we don't need to do any configuration in the job to generate and show the report.
