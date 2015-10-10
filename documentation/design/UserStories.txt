@@ -1,10 +1,35 @@
 User stories for locations' services and what to do - Stephen Jacob
 
+*As a user, I want the application to display my current location, so that I can know where I am.
+**Success: The opening interface of the app will display a centered, marked GPS location on a map overhead.
+**Failure: The app will display the following message: "Error. Resource not available."
+**Acceptance Criteria:
+	A tourist knows where in Athlone he or she is.
+	A tourist can determine how far away they are from a desired attraction, or location.
 
-*As a user I want to display a map overhead with my current GPS coordinates labeled in the center when I start the application's opening interface so I will know where in Athlone I am.
 
-*As a user I want to enter the name of the attraction into a search engine on the app to zoom over the attraction's GPS coordinates on the interface.
+*As a user, I want to enter the name of an attraction into a search engine so that the application will show me the attraction's location.
+**Success: The app will show a similar map overhead with the coordinates of the attraction.
+**Failure: The app will display the following message: "Error. Resource not available."
+**Acceptance Criteria:
+	A tourist knows the location, and the directions to a recommended attraction they want to visit, e.g. Sean's Bar, Liddel's.
+	A tourist can return to said attraction for future visits.
 
-*As a user I want to enter the type of attraction into the app, so to display all the GPS locations of all available respective attractions on a map overhead of Athlone.
 
-*As a user I want to record the coordinates of poular attractions in Athlone, that are entered more than once so to appear on a drop-down list. 
+*As a user I want to enter the type of attraction e.g. restaurants into the app, so that all respective locations are displayed.
+**Success: The app will display a map overhead of Athlone with all locations of every restaurant labelled.
+**Failure: The app will display the following message: "Error. Resource not available."
+**Acceptance Criteria:
+	A tourist knows every location of each available attraction of the type he is searching for.
+	A tourist can move the map overhead on the interface to have a visual on all attractions.
+	A tourist can zoom in on a particular location of Athlone  
+	A tourist can pick the attraction closest to their current location.
+
+
+*As a user, I want to display the more popular attractions, those that are rated highest so that the app displays each said attraction.
+**Success: A map overhead with all said attractions marked is displayed.
+**Failure: The app will display the following message: "Error. Resource not available."
+**Acceptance Criteria:
+	A tourist knows the more popular, more recommended attractions to try.
+	A tourist knows where the attractions he enjoyed, he'd recommend are.
+
