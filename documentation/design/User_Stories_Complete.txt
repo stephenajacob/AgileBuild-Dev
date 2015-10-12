@@ -7,7 +7,7 @@ Acceptance Criteria:
 	A tourist can filter food on Type (bar, restaurant, fast food), cuisine (Irish, Indian, Chinese, Italian, Lebanese) and tourist ranking
 	A tourist can filter activities on Type (historical, on the water, active, nature, arts, spa, tours) and tourist ranking
 	A tourist opens the list of experiences, note the number of results. Selects some criteria to narrow the result. 
-		The list now has less entries. The tourist unselects the criteria and the number of results is back to the previous number
+		The list now has less entries. The tourist unselects the criteria and the number of results is back to the previous number.
 
 #2
 As a tourist I want to be able to sort the suggestions in a particular order so that I can compare suggestions.
