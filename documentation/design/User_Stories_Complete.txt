@@ -1,4 +1,4 @@
-#1
+﻿#1
 As a tourist I want to be able to filter the list of suggestions by certain criteria so that I can narrow the results.
 Success:	Smaller list of results displayed to tourist.
 Failure:	Full list of results displayed to user and message displayed "Result filtering failed"
@@ -20,7 +20,7 @@ Acceptance Criteria:
 As a tourist I want to rate a suggestion given to me so that I will receive more suited suggestions in the future.
 Success:	rating, experience and type recorded in database and message displayed to tourist: 
 			"Thank you, we'll use this to improve our suggestions in the future".
-Failure:	Message is displayed to user "Your rating could not be recorded at this time, please try again later"
+Failure: Message is displayed to user "Your rating could not be recorded at this time, please try again later"
 Acceptance Criteria:
 	A tourist can give a 5 point emoticon rating from "what were you thinking?" to "great suggestion"
 	A tourist gives a suggestion the worst rating, very sad face & "what were you thinking?". 
