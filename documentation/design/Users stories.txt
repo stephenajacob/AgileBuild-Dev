@@ -1,12 +1,19 @@
-As a user I can pick what type of food I want based on the time of the day
-- This is where the user would pick if they want breakfast/lunch/dinner or snack
+As a tourist I want to be given food suggestions based on the time of the day so that the meal suits me
+- Success: The app would give me places to eat such things as breakfast/lunch/dinner or snack
+- Failure: The app will not give me back a list of places to eat
+- Acceptance criteria: Reads the system time and generates locations to eat based on the time of day
 
-As a user I can decide the type of food I want based on the scene of my surroundings
-- This is where a user would pick if they want to have dinner in a restaurant or a pub dinner
+As a tourist I want to be given food suggestions based on my location so that I can get somewhere to eat close by where I am.
+- Success: The app would give me a list of places to eat that is close by my location
+- Failure: The app would not generate a list of places 
+- Acceptance criteria: The app would use my Geo-Location to find out what places are near me to eat
 
-As a user I want to pick what culture of food I want based on what mood I am in
-- This is where the user can pick if he/she wants to have Chinese/Thai/Indian etc
+As a tourist I want to be given food suggestion based on previous cuisines ive have visited so that I get suggested all different types of culture foods.
+- Success: The app would give me a list of different culture resturants in my area. For example Chinese/Thai/Indian etc
+- Failure: The app would not generate a successful list of places
+- Acceptance criteria: The app would read from my user profile and see the type of places I have rated in the past
 
-As a user I want to be able to pick the type of food based on how hungry I am
-- This is where the user would pick where they would like to eat based on how hungry they are so they would be able to pick something like a steakhouse if they are really hungry or just pub if they are just looking for a light lunch/carvery
-
+As a tourist I want to be able to pick the type of food I want based on past preference so that I get places I like and am familiar with.
+- Success: The app would give me a list of pubs/resturants/cafes to eat in that are near my location
+- Failure: The app would not generate a successful list of places
+- Acceptance criteria: The app would take info from my user preferences and generate a list of nearby places based on this stored information. 

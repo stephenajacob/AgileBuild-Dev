@@ -1,0 +1,19 @@
+As a user I want to book a inn in Athlone.
+	Advantages:   It is convenient to take a bus and hang out during the vacation.
+	disadvantages:It is expensive that will cost so much.
+	      
+As a user I want to live in a hostel in Athlone which is near the countryside.
+	Advantages:   Be able to breathe fresh air,enjoy beautiful landscapes,and relax.
+	              Be able to meet lots of friends to get together.
+	              It is cheap that costs little.
+	disadvantages:The living environment is a little bit bad,with bad smelling and fearful insects.
+	              It is dangerous if you live alone and some people are not friendly.
+
+As a user I want to move to a big hotel in the centre of Athlone.
+	Advantages:   It is safe than any place.
+		      It will offer you some good services 
+		      The living environment is quite good and make sure you have a good rest
+	disadvantages:It is quite expensive.
+		      It always locates at the business district with serious pollution and so much noisy.
+Recommandation:As my opinion,the best choice should be the inn.
+
