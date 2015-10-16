@@ -1,4 +1,6 @@
-﻿#1
+
+Suggestion Filtering
+
 As a tourist I want to be able to filter the list of suggestions by certain criteria so that I can narrow the results.
 Success:	Smaller list of results displayed to tourist.
 Failure:	Full list of results displayed to user and message displayed "Result filtering failed"
@@ -9,14 +11,24 @@ Acceptance Criteria:
 	A tourist opens the list of experiences, note the number of results. Selects some criteria to narrow the result. 
 		The list now has less entries. The tourist unselects the criteria and the number of results is back to the previous number.
 
-#2
+Priority: Medium
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Suggestion Order
+
 As a tourist I want to be able to sort the suggestions in a particular order so that I can compare suggestions.
 Success:	Results sorted in ascending/descending based on column selected.
 Failure:	Results not sorted and error message displayed "Results could not be sorted on this criteria"
 Acceptance Criteria:
 	A tourist opens the list of experience, note the order. The tourist selects a certain column to sort on. The order will change.
 
-#3
+Priority: Medium
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Rating Option
+
 As a tourist I want to rate a suggestion given to me so that I will receive more suited suggestions in the future.
 Success:	rating, experience and type recorded in database and message displayed to tourist: 
 			"Thank you, we'll use this to improve our suggestions in the future".
@@ -27,27 +39,35 @@ Acceptance Criteria:
 		This suggestion does not appear in the list of suggestions again.
 	A tourist gives a suggestion the best rating, very happy face & "great suggestion".
 		Suggestions of this type appear in great numbers in the list of suggestions.
+Priority: High
 
-#4
+-----------------------------------------------------------------------------------------------------------------------------
+
+Ratings implmented for all users
+
 As a tourist I want to rate an experience I have taken so that the app will give suggestions based on ratings to all tourists in the future.
-Success:	rating and experience are recorded in database and message displayed to tourist:
-			"Thank you, we'll use this information to give tourists better suggestions".
-Failure:	Message is displayed to user "rating could not be recorded at this time"
+Success: rating and experience are recorded in database and message displayed to tourist:  "Thank you, we'll use this information to give tourists better suggestions".
+Failure:  Message is displayed to user "rating could not be recorded at this time"
 Acceptance Criteria:
 	A tourist can give a 5 point emoticon rating: Terrible, Poor, Average, Very good, Excellent.
 	A tourist gives an experience the worst rating, very sad face & Terrible. This experience is lower in the list for the next tourist.
 	A tourist gives an experience the best rating, very happy face & Excellent. This experience is higher in the list for the next tourist.
+Priority: High
 
-#5
+-----------------------------------------------------------------------------------------------------------------------------
+
+Reviews of tourist experiences
+
 As a tourist I want to review an experience I have taken so that the app can show this to future tourists.
-Success:	Review (subject, body, time of visit & rating) stored in database and message displayed to tourist:
-			"Thank you, you have successfully reviewed this experience"
-Failure:	Message is displayed to user "Your review could not be recorded at this time, please try again later"
-Acceptance Criteria:
-	A tourist reviews an experience giving a subject, body and rating. 
-		This review is visible in chronological order the next time the tourist views the experience.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Success:  Review (subject, body, time of visit & rating) stored in database and message displayed to tourist: "Thank you, you have successfully reviewed this experience"
+Failure:  Message is displayed to user "Your review could not be recorded at this time, please try again later"
+Acceptance Criteria: A tourist reviews an experience giving a subject, body and rating. 
+		     This review is visible in chronological order the next time the tourist views the experience.
+Priority: Medium
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 		
 User Preferences
 
@@ -56,32 +76,37 @@ As a tourist I want my user history of the app taken into account so that I will
 Success: User history, such as where the tourist may have stayed last should be recorded and taken into account when making suggestions.
 Failure:   User history is not stored or taken into account when making suggestions.
 Acceptance: The system should be able to make suggestions based on the above criteria.
+Priority - High
 -----------------------------------------------------------------------------------------------------------------------
 Food Preferences
-As a tourist I want my food preferences taken into account so that I will receive more suited suggestions in the future.
+As a tourist I want my food preferences taken into account so that I will receive more suitable suggestions in the future.
 Success:  The system should take into account and store food preferences on the database.  It should also use the ratings sytem in place to record this information
 Failure:	 User history is not stored or taken into account when making suggestions.
 Acceptance: The system should be able to make suggestions based on the above criteria.
+Priority - High
 ----------------------------------------------------------------------------------------------------------------
 Musical Preferences
-As a tourist I want my musical preferences taken into account so that I will receive more suited suggestions in the future with regard to music venues.
+As a tourist I want my musical preferences taken into account so that I will receive more suitable suggestions in the future with regard to music venues.
 Success: The user's musical preferences should be stored on the database and utilised to make appropriate suggestions.  The ratings system should be used to record this information.
 Failure:	 Musical preferences are not stored and/or taken into account when making suggestions.
 Acceptance: The system should be able to make suggestions based on the above criteria.
+Priority - Low
 ----------------------------------------------------------------------------------------------------------------
 Hotels/Accomodation
-As a tourist I want my preferences taken into account so that I will receive more suited suggestions in the future with regard to hotels/accomodation.
+As a tourist I want my preferences taken into account so that I will receive more suitable suggestions in the future with regard to hotels/accomodation.
 Success: The user's preferences should be stored on the database and utilised to make appropriate suggestions with regard to hotels/accomodation.  The ratings system should be used to record this information.
 Failure:	 Hotel/Accomodation preferences are not stored and/or taken into account when making suggestions.
 Acceptance: The system should be able to make suggestions based on the above criteria.
+Priority - High
 ----------------------------------------------------------------------------------------------------------------
 Activities
 As a tourist I want my preferences taken into account so that I will receive more suited suggestions in the future with regard to activities.
 Success: The user's preferences should be stored on the database and utilised to make appropriate suggestions with regard to activities such as dancing, paint ball etc.  The ratings system should be used to record this information.
 Failure:	 Activity preferences are not stored and/or taken into account when making suggestions.
 Acceptance: The system should be able to make suggestions based on the above criteria.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Priority - Low
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 User Profile
@@ -89,95 +114,117 @@ User Profile
 As a tourist I want to be able to create my own profile on the app so that the system will assign me a unique profile.
 Success:  The system should record the user's name, age, address, gender, phone number, email address on the database.
 Failure:	 The system is unable to store the user's details on the database when registering.  The user gets an error message.
+
+Prioriy: High
 ----------------------------------------------------------------------------------------------------------------
 Logon
 As a tourist I want to be able to log on to the app once registered so that I can use the system.
 Success: The system should provide the user with the opportunity to choose a password and a username.  The system should recognise these credentials when the user logs on.  These details are stored on the database
 Failure:  The system does not recognise the user's log on credentials when the user attemps to log.  The user gets an error message.
+
+Priority: High
 ----------------------------------------------------------------------------------------------------------------
 Logoff
 As a tourist I want to be able to log off the app.
 Success: The system provide the user with the option to log off the app.
 Failure:	 The user is unable to log off the system.  The user gets an error message.
--------------------------------------------------------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-User stories for locations' services and what to do - Stephen Jacob
-
-*As a user, I want the application to display my current location, so that I can know where I am.
-**Success: The opening interface of the app will display a centered, marked GPS location on a map overhead.
-**Failure: The app will display the following message: "Error. Resource not available."
-**Acceptance Criteria:
-	A tourist knows where in Athlone he or she is.
-	A tourist can determine how far away they are from a desired attraction, or location.
+Priority: Low
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-*As a user, I want to enter the name of an attraction into a search engine so that the application will show me the attraction's location.
-**Success: The app will show a similar map overhead with the coordinates of the attraction.
-**Failure: The app will display the following message: "Error. Resource not available."
-**Acceptance Criteria:
-	A tourist knows the location, and the directions to a recommended attraction they want to visit, e.g. Sean's Bar, Liddel's.
-	A tourist can return to said attraction for future visits.
+Location Services
 
+Current Location
+As a user, I want the application to display my current location, so that I can know where I am.
+Success: The opening interface of the app will display a centered, marked GPS location on a map overhead.
+Failure: The app will display the following message: "Error. Resource not available."
+Acceptance Criteria:  A tourist knows where in Athlone he or she is.
+	              A tourist can determine how far away they are from a desired attraction, or location.
+Priority: High
+-----------------------------------------------------------------------------------------------------------------------------
 
-*As a user I want to enter the type of attraction e.g. restaurants into the app, so that all respective locations are displayed.
-**Success: The app will display a map overhead of Athlone with all locations of every restaurant labelled.
-**Failure: The app will display the following message: "Error. Resource not available."
-**Acceptance Criteria:
+Search
+As a user, I want to enter the name of an attraction into a search engine so that the system will show me the attraction's location.
+Success: The app will show a similar map overhead with the coordinates of the attraction.
+Failure: The app will display the following message: "Error. Resource not available."
+Acceptance Criteria:  A tourist knows the location, and the directions to a recommended attraction they want to visit, e.g   Sean's Bar, Liddel's.  A tourist can return to said attraction for future visits.
+Priority: Medium
+----------------------------------------------------------------------------------------------------------------------------
+
+Location Type
+As a user I want to enter the type of attraction e.g. restaurants into the app, so that all respective locations are displayed.
+Success: The app will display a map overhead of Athlone with all locations of every restaurant labelled.
+Failure: The app will display the following message: "Error. Resource not available."
+Acceptance Criteria:
 	A tourist knows every location of each available attraction of the type he is searching for.
 	A tourist can move the map overhead on the interface to have a visual on all attractions.
 	A tourist can zoom in on a particular location of Athlone  
 	A tourist can pick the attraction closest to their current location.
+Priority: Medium
+-----------------------------------------------------------------------------------------------------------------------------
 
-	---------------------------------------------------------------------------------------------------------------------------------------------------------------
-	---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-*As a user, I want to display the more popular attractions, those that are rated highest so that the app displays each said attraction.
-**Success: A map overhead with all said attractions marked is displayed.
-**Failure: The app will display the following message: "Error. Resource not available."
-**Acceptance Criteria:
+Display most popular locations
+As a user, I want to display the more popular attractions, those that are rated highest so that the app displays each said attraction.
+Success: A map overhead with all said attractions marked is displayed.
+Failure: The app will display the following message: "Error. Resource not available."
+Acceptance Criteria:
 	A tourist knows the more popular, more recommended attractions to try.
-	A tourist knows where the attractions he enjoyed, he'd recommend are.
+	A tourist knows where the attractions he enjoyed, that he'd recommend to someone else.
+Priority: Medium
 	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Food Suggestions - Time of Day
 As a tourist I want to be given food suggestions based on the time of the day so that the meal suits me
-- Success: The app would give me places to eat such things as breakfast/lunch/dinner or snack
-- Failure: The app will not give me back a list of places to eat
-- Acceptance criteria: Reads the system time and generates locations to eat based on the time of day
+Success: The app would give me places to eat such things as breakfast/lunch/dinner or snack
+Failure: The app will not give me back a list of places to eat
+Acceptance criteria: Reads the system time and generates locations to eat based on the time of day.
+Priority - Medium
 
-As a tourist I want to be given food suggestions based on my location so that I can get somewhere to eat close by where I am.
-- Success: The app would give me a list of places to eat that is close by my location
-- Failure: The app would not generate a list of places 
-- Acceptance criteria: The app would use my Geo-Location to find out what places are near me to eat
+Food Suggestions - Location
+As a tourist I want to be given food suggestions based on my location so that I can get somewhere to eat close by.
+Success: The app would give me a list of places to eat that are close to my location
+Failure: The app would not generate a list of places 
+Acceptance criteria: The app would use my Geo-Location to find out what places are near me to eat.
+Priority - High
 
-As a tourist I want to be given food suggestion based on previous cuisines ive have visited so that I get suggested all different types of culture foods.
-- Success: The app would give me a list of different culture resturants in my area. For example Chinese/Thai/Indian etc
-- Failure: The app would not generate a successful list of places
-- Acceptance criteria: The app would read from my user profile and see the type of places I have rated in the past
+Food Suggestions - History
+As a tourist I want to be given food suggestion based on previous cuisines I have visited so that I get similar suggestions based on said types.
+Success: The app would give me a list of different culture resturants in my area. For example Chinese/Thai/Indian etc
+Failure: The app would not generate a successful list of places
+Acceptance criteria: The app would read from my user profile and see the type of places I have rated in the past
+Priority - Medium
 
+Food Suggestions - History
 As a tourist I want to be able to pick the type of food I want based on past preference so that I get places I like and am familiar with.
-- Success: The app would give me a list of pubs/resturants/cafes to eat in that are near my location
-- Failure: The app would not generate a successful list of places
-- Acceptance criteria: The app would take info from my user preferences and generate a list of nearby places based on this stored information. 
+Success: The app would give me a list of pubs/resturants/cafes to eat in that are near my location
+Failure: The app would not generate a successful list of places
+Acceptance criteria: The app would take info from my user preferences and generate a list of nearby places based on this stored information. 
+Priority - Medium
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 User stories for accommodations’s services——Gerald
 
 As a tourist I want to be given the accommodation location before I travel so that I can make a plan of going sightseeing surrounding my living place.
-success:The system should show a map and GPS to users,include the name of street and road,the  landscapes or interest of places nearby,and some small stores and so forth.
+Success:The system should show a map and GPS to users,include the name of street and road,the  landscapes or interest of places nearby,and some small stores and so forth.
 Failure:The system is unable to show where the accommodation is or it just shows the accommodation without any other  good places.
+Priority: High
 
 As a tourist I want to know the price of accommodation and be given suggestions on which room is the most comfortable and suitable.
-success:The system should make a list of all the rooms and hotels and compare them in price,environment,facilities and so on.Then,it should give users a suggestion and help users choose a room.
+Success:The system should make a list of all the rooms and hotels and compare them in price,environment,facilities and so on. It should give users a suggestion and help users choose a room.
 Failure:The system does not compare the price and other information of rooms,and it does not give any suggestions,either.
+Priority: Medium
 
 As a tourist I want to know if there are some extra services when I live in the accommodation,such as make a discount,include breakfast,give something as a present,or something like that,so that I can decide whether I choose this hotel or not.
 Success:The system should post some activities for users and some other services and so forth,in order to let users recognise it is really great for them.
 Failure:The system posts nothing else and users are unable to check it.
+Priority: Medium
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
