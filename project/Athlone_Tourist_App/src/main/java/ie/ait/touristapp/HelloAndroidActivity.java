@@ -1,12 +1,17 @@
 package ie.ait.touristapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 public class HelloAndroidActivity extends Activity {
 
     private static String TAG = "AthloneTouristApp";
+    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+
 
     /**
      * Called when the activity is first created.
@@ -19,6 +24,11 @@ public class HelloAndroidActivity extends Activity {
         super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
+    }
+
+    public void openRegisterScreen(View view){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
 }

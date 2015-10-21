@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/button9"
+        android:onClick="openRegisterScreen"
         android:layout_weight="0.09"
         android:layout_gravity="center_horizontal" />
 
