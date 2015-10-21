@@ -1,4 +1,14 @@
-User stories for accommodations’s services——Gerald
+Main Menu
+
+As a tourist I want to be shown a main menu so that I will be able to choose what is a suitable suggestion for what i am looking to do.
+
+Success: I will be able to see a list of links to search in such as Accommodation/Activity/Eating/Historical/Events etc
+Failure:	 Will not be displayed a list of suggestions.
+Acceptance: After user logs in or registers they will be brought to this screen to then decide what they would like to search for.
+Priority - High
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+User stories for accommodations’s services
 
 As a tourist I want to be given the accommodation location before I travel so that I can make a plan of going sightseeing surrounding my living place.
 Success:The system should show a map and GPS to users,include the name of street and road,the  landscapes or interest of places nearby,and some small stores and so forth.
