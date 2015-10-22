@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@drawable/athlone">
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please make a selection for what you would like to do:"
+        android:id="@+id/autoCompleteTextView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.06" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accomodation"
+        android:id="@+id/button"
+        android:layout_weight="0.06"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:text="Live Music"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.06" />
+
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Night life"
+        android:id="@+id/button3"
+        android:layout_weight="0.06"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:text="Historical"
+        android:id="@+id/button4"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.06" />
+
+    <Button
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Activity"
+        android:id="@+id/button5"
+        android:layout_weight="0.06"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Food"
+        android:id="@+id/button6"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.06" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="83dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:id="@+id/button7"
+        android:layout_gravity="right"
+        android:layout_weight="0.06" />
+
+</LinearLayout>

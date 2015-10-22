@@ -1,3 +1,12 @@
+Home Screen
+
+As a user I want to be able to see a simple screen so that I can decide if i want to login or register as a new user.
+
+Success: I would see a home screen with two buttons and our web logo
+Failure: App would not open on the desired screen 
+Acceptance: To have a main screen with the logo so that the user can be taken through the app step by step without any issues
+Priority - High
+-----------------------------------------------------------------------------------------------------------------------------------------------
 Main Menu
 
 As a tourist I want to be shown a main menu so that I will be able to choose what is a suitable suggestion for what i am looking to do.
@@ -8,7 +17,7 @@ Acceptance: After user logs in or registers they will be brought to this screen 
 Priority - High
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-User stories for accommodations’s services
+User stories for accommodation's services
 
 As a tourist I want to be given the accommodation location before I travel so that I can make a plan of going sightseeing surrounding my living place.
 Success:The system should show a map and GPS to users,include the name of street and road,the  landscapes or interest of places nearby,and some small stores and so forth.
