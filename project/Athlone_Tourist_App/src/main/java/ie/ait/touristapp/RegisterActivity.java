@@ -48,10 +48,6 @@ public class RegisterActivity extends Activity {
                         .setAddress((String) address.getText().toString())
                         .setPhoneNumber((String) phoneNumber.getText().toString())
                         .setAge(new Integer(age.getText().toString())).build();
-
-        Intent intent = new Intent(this, RegisteredActivity.class);
-        intent.putExtra(NAME, (String)name.getText().toString());
-        startActivity(intent);
     }
 
 }
