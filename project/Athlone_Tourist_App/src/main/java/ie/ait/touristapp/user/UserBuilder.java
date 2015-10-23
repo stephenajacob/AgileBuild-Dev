@@ -12,13 +12,12 @@ public class UserBuilder {
     private String emailAddress;
     private Gender gender;
     private String phoneNumber;
+    private String address;
 
     public UserBuilder setAddress(String address) {
         this.address = address;
         return this;
     }
-
-    private String address;
 
     public UserBuilder setName(String name){
         this.name = name;
