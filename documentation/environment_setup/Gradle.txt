@@ -1,0 +1,108 @@
+Install gradle: https://docs.gradle.org/current/userguide/installation.html
+
+What is gradle?
+	Project Automation Tool.
+	Builds upon the concepts of Ant and Maven.
+	Groovy based DSL instead of XML
+		which is extensible.
+	Uses directed-acyclic-graph to determine the order in which tasks can be run.
+		Maven uses lifecycle
+		Ant uses depends-upon partial ordering
+		tasks are to Gradle what goals are to Maven.
+	Designed for multi-project builds which can grow quite large
+	Supports incremental builds by intelligently determining which parts of the build tree are up to date.
+		This would save time when building ERICtaf_util!
+
+Gradle has plugins, which I presume are similar to Maven plugins
+Gradle continues the idea of convention over configuration
+Gradle is tightly integration with Ant, a build.xml file can be run as a gradle task.
+
+Built to run on the jvm
+Integrates with lots!
+	GIT
+	Jenkins
+	Nexus
+	IntelliJ
+	Eclipse
+	JBOSS
+	...
+
+Gradle Wrapper is a nice idea!
+	Allows you to run the project on systems which don't have gradle installed.
+
+How does it work?
+	2 basic concepts:
+		projects
+		tasks
+	Every build is made of one or more projects.
+	A project can be a thing to be built or a thing to be done.
+	Each project is made of one or more tasks
+	A task is some atomic piece of work which a build performs.
+		Ex: compiling classes, creating a jar, etc.
+
+	You run Gradle by calling the gradle command.
+	The command looks for a file build.gradle in the current directory.
+	build.gradle file is the build script/build configuration script
+		The file/script defines a project and its tasks.
+
+	You can easily define your own task using the keyword task (followed by a closure?)
+		task ... {...}
+	You give your task a name and define an action for it
+		task myTask {
+			doLast {...}
+		}
+	run your task on the command line: gradle myTask
+	The action you define is a closure with some groovy code in it.
+	Gradle tasks are equivalent to Ant targets.
+		and much more powerful
+
+	Shortcut task definition:
+		task myTask << {
+			...
+		}
+
+	Build scripts are code!
+		Full functionality of Groovy available at your fingertips
+
+	Task Dependencies
+		You can declare tasks that depend on other tasks.
+		task newTask(dependsOn: myTask) << {
+			...
+		}
+		<< is an alias for doLast
+		
+		newTask does not need to be declared after myTask
+	Groovy can be used outside the task definition to dynamically create tasks
+
+	Once tasks are created they can be accessed via an API
+		myTask.dependsOn ...
+		myTask.doFirst/Last ...
+	Each task is available as a property of the build script as we see in the myTask examples above.
+	
+	You can add your own properties to a task
+		task MyTask {
+			ext.myProperty = "my Value"
+
+	Groovy is shipped with AntBuilder!
+		Makes Ant tasks first-class citizens in Gradle
+
+	You can define tasks as default
+		i.e. they run by default every time you run gradle
+		In a multi-project build, subprojects can have their own defaults 
+			If none are specified the parents defaults are used.
+
+	Gradle has 2 phases
+		configuration
+		execution
+
+	After configuration phase gradle knows all the tasks that should executed in this build
+	You can then use this information in tasks
+		Use-case:
+			build, minor, major version
+			Depending on the task selected you can updated whatever version you need.
+	gradle.taskGraph.whenReady{taskGraph ->
+		...
+	}
+	whenReady affects task before it is executed!
+
+Plugins (Chapter 7)
