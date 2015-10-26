@@ -35,6 +35,10 @@ reports
 application.properties
 */dependency-reduced-pom.xml
 
+# Gradle build files
+build
+.gradle
+
 # PMD
 .pmd
 
