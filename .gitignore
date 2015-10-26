@@ -49,3 +49,4 @@ test-output/
 *.exe
 *.dll
 
+local.properties
