@@ -1,4 +1,4 @@
-package main.java.ie.ait.touristapp;
+package ie.ait.touristapp;
 
 /**
  * Created by brendan on 27/10/2015.

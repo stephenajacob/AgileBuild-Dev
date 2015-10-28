@@ -1,8 +1,7 @@
-package main.java.ie.ait.touristapp;
+package ie.ait.touristapp;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.app.Activity;
 import android.widget.Toast;
 
@@ -15,7 +14,7 @@ public class SignUp extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.Signup);
+        setContentView(R.layout.signup);
 
     }
 

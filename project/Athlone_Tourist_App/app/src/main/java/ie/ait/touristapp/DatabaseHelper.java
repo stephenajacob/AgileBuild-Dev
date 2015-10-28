@@ -1,10 +1,10 @@
-package main.java.ie.ait.touristapp;
+package ie.ait.touristapp;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.Context;
 
 /**
  * Created by brendan on 27/10/2015.
