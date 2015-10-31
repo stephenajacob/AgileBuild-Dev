@@ -111,4 +111,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.onCreate(db);
 
     }
+
+    public boolean valueExistsForColumn(String value, String column) {
+        String query = "SELECT * FROM "+USERS_TABLE_NAME+" WHERE "+ column +"='"+value+"';";
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.getCount()!=0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

@@ -18,6 +18,8 @@ import ie.ait.touristapp.user.UserBuilder;
  */
 public class RegisterActivity extends Activity {
 
+    public static final String USERNAME = "username";
+    public static final String EMAIL = "email";
     private TextView name;
     private TextView username;
     private TextView password;
@@ -53,12 +55,10 @@ public class RegisterActivity extends Activity {
 
     public void registerUser(){
         User user = createUser();
-        //TODO Check users existence in DB.
-
-        //TODO Create user
         dbHelper.insertUser(user);
 
-        //TODO move to login activity
+        Intent intent = new Intent(this, HelloAndroidActivity.class);
+        startActivity(intent);
     }
 
     private User createUser() {
@@ -80,12 +80,14 @@ public class RegisterActivity extends Activity {
 
         @Override
         public void onClick(View v) {
+            String usernameString = username.getText().toString();
             String passwordString = password.getText().toString();
             String reenterPasswordString = reenterPassword.getText().toString();
+            String emailAddressString = emailAddress.getText().toString();
             if(name.getText().toString().equals("")){
                 name.setError("Name cannot be empty");
             }
-            else if(username.getText().toString().equals("")){
+            else if(usernameString.equals("")){
                 username.setError("Username cannot be empty");
             }
             else if(passwordString.equals("")){
@@ -94,7 +96,7 @@ public class RegisterActivity extends Activity {
             else if(reenterPasswordString.equals("")){
                 reenterPassword.setError("Re-enter Password cannot be empty");
             }
-            else if(emailAddress.getText().toString().equals("")){
+            else if(emailAddressString.equals("")){
                 emailAddress.setError("emailAddress cannot be empty");
             }
             else if(age.getText().toString().equals("")){
@@ -102,9 +104,17 @@ public class RegisterActivity extends Activity {
             }
             else if(gender.getCheckedRadioButtonId()==-1){
                 register.setError("Gender cannot be empty");
-            } else if (!passwordString.equals(reenterPasswordString)){
+            }
+            else if (!passwordString.equals(reenterPasswordString)){
                 reenterPassword.setError("Passwords must match");
-            }else {
+            }
+            else if(dbHelper.valueExistsForColumn(usernameString, USERNAME)){
+                username.setError("Username "+usernameString+" already exists");
+            }
+            else if(dbHelper.valueExistsForColumn(emailAddressString, EMAIL)){
+                emailAddress.setError("Email "+emailAddressString+" already exists");
+            }
+            else {
                 registerUser();
             }
         }
