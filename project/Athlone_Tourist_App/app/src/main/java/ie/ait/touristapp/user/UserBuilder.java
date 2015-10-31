@@ -55,6 +55,6 @@ public class UserBuilder {
     }
 
     public User build(){
-        return new User(username, address, age, emailAddress, gender, name, phoneNumber);
+        return new User(username, password, address, age, emailAddress, gender, name, phoneNumber);
     }
 }

@@ -26,6 +26,9 @@ public class RegisterActivity extends Activity {
     private RadioGroup gender;
     private Button register;
 
+
+    private DatabaseHelper dbHelper = new DatabaseHelper(this);
+
     public final static String NAME = "ie.ait.touristapp.NAME";
 
     @Override
@@ -49,7 +52,11 @@ public class RegisterActivity extends Activity {
     public void registerUser(){
         User user = createUser();
         //TODO Check users existence in DB.
+
         //TODO Create user
+        dbHelper.insertUser(user);
+
+        //TODO move to login activity
     }
 
     private User createUser() {

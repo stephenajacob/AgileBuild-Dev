@@ -3,4 +3,13 @@
     <string name="login">Login</string>
     <string name="hello">Hello AthloneTouristApp!</string>
     <string name="app_name">AthloneTouristApp</string>
+    <string name="create_user_table">create table users(
+        id primary key not null auto_increment,
+        username text not null,
+        password text not null,
+        address text not null,
+        age integer not null,
+        email text not null,
+        gender text not null,
+        name text not null);</string>
 </resources>

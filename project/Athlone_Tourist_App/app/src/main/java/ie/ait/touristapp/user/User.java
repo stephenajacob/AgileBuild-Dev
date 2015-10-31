@@ -5,6 +5,7 @@ package ie.ait.touristapp.user;
  */
 public class User {
     private String username;
+    private String password;
     private String address;
     private int age;
     private String emailAddress;
@@ -12,8 +13,9 @@ public class User {
     private String name;
     private String phoneNumber;
 
-    public User(String username, String address, int age, String emailAddress, Gender gender, String name, String phoneNumber) {
+    public User(String username, String password, String address, int age, String emailAddress, Gender gender, String name, String phoneNumber) {
         this.address = address;
+        this.password = password;
         this.age = age;
         this.emailAddress = emailAddress;
         this.gender = gender;
@@ -80,5 +82,13 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
     }
 }
