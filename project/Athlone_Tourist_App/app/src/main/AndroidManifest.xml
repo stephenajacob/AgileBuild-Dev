@@ -10,7 +10,6 @@
       </intent-filter>
     </activity>
     <activity android:name=".RegisterActivity" />
-    <activity android:name=".SignUp"></activity>
   </application>
 
 </manifest>

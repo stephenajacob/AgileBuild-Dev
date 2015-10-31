@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "tourist_app";
     private static final String TABLE_NAME = "contacts";
-    private static final String USERS_TABLE_NAME = "user";
+    public static final String USERS_TABLE_NAME = "user";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_EMAIL = "email";
@@ -35,6 +35,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "email text not null, " +
             "gender text not null, " +
             "name text not null);";
+    public static final String USERNAME = "username";
+    public static final String PASSWORD = "password";
+    public static final String AGE = "age";
+    public static final String EMAIL = "email";
+    public static final String GENDER = "gender";
+    public static final String NAME = "name";
 
 
     public DatabaseHelper(Context context)
@@ -43,9 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        db.execSQL(CONTACT_TABLE_CREATE);
         db.execSQL(USER_TABLE_CREATE);
-//        this.db=db;
     }
 
 
@@ -53,28 +57,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("username", user.getUsername());
-        values.put("password", user.getPassword());
-        values.put("age", user.getAge());
-        values.put("email", user.getEmailAddress());
-        values.put("gender", user.getGender().toString());
-        values.put("name", user.getName());
+        values.put(USERNAME, user.getUsername());
+        values.put(PASSWORD, user.getPassword());
+        values.put(AGE, user.getAge());
+        values.put(EMAIL, user.getEmailAddress());
+        values.put(GENDER, user.getGender().toString());
+        values.put(NAME, user.getName());
 
         db.insert(USERS_TABLE_NAME, null, values);
-        db.close();
-
-    }
-
-    public void insertContact(Contact c)
-    {
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME , c.getName());
-        values.put(COLUMN_EMAIL , c.getEmail());
-        values.put(COLUMN_UNAME , c.getUname());
-        values.put(COLUMN_PASS, c.getPass());
-
-        db.insert(TABLE_NAME, null, values);
         db.close();
 
     }
@@ -112,8 +102,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean valueExistsForColumn(String value, String column) {
-        String query = "SELECT * FROM "+USERS_TABLE_NAME+" WHERE "+ column +"='"+value+"';";
+    public boolean valueExistsForColumnInTable(String table, String value, String column) {
+        String query = String.format("SELECT * FROM %s WHERE %s='%s';", table, column, value);
         SQLiteDatabase db=this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery(query, null);

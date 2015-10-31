@@ -20,19 +20,18 @@ public class RegisterActivity extends Activity {
 
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
-    private TextView name;
-    private TextView username;
-    private TextView password;
-    private TextView reenterPassword;
-    private TextView emailAddress;
-    private TextView age;
+    public static final String NAME_CANNOT_BE_EMPTY = "name cannot be empty";
+    public static final String USERNAME_CANNOT_BE_EMPTY = "username cannot be empty";
+    public static final String PASSWORD_CANNOT_BE_EMPTY = "password cannot be empty";
+    public static final String EMAIL_ADDRESS_CANNOT_BE_EMPTY = "emailAddress cannot be empty";
+    public static final String AGE_CANNOT_BE_EMPTY = "age cannot be empty";
+    public static final String GENDER_CANNOT_BE_EMPTY = "gender cannot be empty";
+    public static final String PASSWORDS_MUST_MATCH = "passwords must match";
+    public static final String ALREADY_EXISTS = "%s %s already exists";
+    private TextView name, username, password, reenterPassword, emailAddress, age;
     private RadioGroup gender;
     private Button register;
-
-
-    private DatabaseHelper dbHelper = new DatabaseHelper(this);
-
-    public final static String NAME = "ie.ait.touristapp.NAME";
+    private DatabaseHelper dbHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,7 @@ public class RegisterActivity extends Activity {
         setContentView(R.layout.register);
         setViewFields();
         register.setOnClickListener(new CheckRegisterFieldsListener());
+        dbHelper = new DatabaseHelper(this);
     }
 
     private void setViewFields() {
@@ -56,7 +56,6 @@ public class RegisterActivity extends Activity {
     public void registerUser(){
         User user = createUser();
         dbHelper.insertUser(user);
-
         Intent intent = new Intent(this, HelloAndroidActivity.class);
         startActivity(intent);
     }
@@ -68,7 +67,7 @@ public class RegisterActivity extends Activity {
                     .setPassword((String) password.getText().toString())
                     .setEmailAddress((String) emailAddress.getText().toString())
                     .setAge(new Integer(age.getText().toString())).build();
-        if(gender.getCheckedRadioButtonId()==0){
+        if(gender.getCheckedRadioButtonId()==Gender.MALE.getValue()){
             user.setGender(Gender.MALE);
         } else {
             user.setGender(Gender.FEMALE);
@@ -84,35 +83,35 @@ public class RegisterActivity extends Activity {
             String passwordString = password.getText().toString();
             String reenterPasswordString = reenterPassword.getText().toString();
             String emailAddressString = emailAddress.getText().toString();
-            if(name.getText().toString().equals("")){
-                name.setError("Name cannot be empty");
+            if(name.getText().toString().isEmpty()){
+                name.setError(NAME_CANNOT_BE_EMPTY);
             }
-            else if(usernameString.equals("")){
-                username.setError("Username cannot be empty");
+            else if(usernameString.isEmpty()){
+                username.setError(USERNAME_CANNOT_BE_EMPTY);
             }
-            else if(passwordString.equals("")){
-                password.setError("Password cannot be empty");
+            else if(passwordString.isEmpty()){
+                password.setError(PASSWORD_CANNOT_BE_EMPTY);
             }
-            else if(reenterPasswordString.equals("")){
-                reenterPassword.setError("Re-enter Password cannot be empty");
+            else if(reenterPasswordString.isEmpty()){
+                reenterPassword.setError(PASSWORD_CANNOT_BE_EMPTY);
             }
-            else if(emailAddressString.equals("")){
-                emailAddress.setError("emailAddress cannot be empty");
+            else if(emailAddressString.isEmpty()){
+                emailAddress.setError(EMAIL_ADDRESS_CANNOT_BE_EMPTY);
             }
-            else if(age.getText().toString().equals("")){
-                age.setError("age cannot be empty");;
+            else if(age.getText().toString().isEmpty()){
+                age.setError(AGE_CANNOT_BE_EMPTY);
             }
             else if(gender.getCheckedRadioButtonId()==-1){
-                register.setError("Gender cannot be empty");
+                register.setError(GENDER_CANNOT_BE_EMPTY);
             }
             else if (!passwordString.equals(reenterPasswordString)){
-                reenterPassword.setError("Passwords must match");
+                reenterPassword.setError(PASSWORDS_MUST_MATCH);
             }
-            else if(dbHelper.valueExistsForColumn(usernameString, USERNAME)){
-                username.setError("Username "+usernameString+" already exists");
+            else if(dbHelper.valueExistsForColumnInTable(DatabaseHelper.USERS_TABLE_NAME, usernameString, USERNAME)){
+                username.setError(String.format(ALREADY_EXISTS, USERNAME, usernameString));
             }
-            else if(dbHelper.valueExistsForColumn(emailAddressString, EMAIL)){
-                emailAddress.setError("Email "+emailAddressString+" already exists");
+            else if(dbHelper.valueExistsForColumnInTable(DatabaseHelper.USERS_TABLE_NAME, emailAddressString, EMAIL)){
+                emailAddress.setError(String.format(ALREADY_EXISTS, EMAIL,emailAddressString));
             }
             else {
                 registerUser();

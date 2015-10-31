@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Enter your details below to register"
+        android:text="@string/RegisterText"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal" />
 
@@ -106,36 +106,28 @@
         android:id="@+id/genderText"
         android:text="Gender" />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/gender"
+        android:layout_above="@+id/fbplacename">
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/gender">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:id="@+id/male"
+            android:checked="false" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male"
-                android:id="@+id/male"
-                android:checked="false"
-                android:layout_gravity="left" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:id="@+id/female"
+            android:checked="false"/>
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female"
-                android:id="@+id/female"
-                android:checked="false"
-                android:layout_gravity="left|center_horizontal" />
-
-        </RadioGroup>
-
-    </LinearLayout>
+    </RadioGroup>
 
     <Button
         android:layout_width="wrap_content"
