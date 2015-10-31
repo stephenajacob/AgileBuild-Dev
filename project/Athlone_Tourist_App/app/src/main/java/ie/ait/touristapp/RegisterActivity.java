@@ -21,6 +21,7 @@ public class RegisterActivity extends Activity {
     private TextView name;
     private TextView username;
     private TextView password;
+    private TextView reenterPassword;
     private TextView emailAddress;
     private TextView age;
     private RadioGroup gender;
@@ -43,6 +44,7 @@ public class RegisterActivity extends Activity {
         name = (TextView) findViewById(R.id.name);
         username = (TextView) findViewById(R.id.username);
         password = (TextView) findViewById(R.id.password);
+        reenterPassword = (TextView) findViewById(R.id.reenterPassword);
         emailAddress = (TextView) findViewById(R.id.emailAddress);
         age = (TextView)findViewById(R.id.age);
         gender = (RadioGroup)findViewById(R.id.gender);
@@ -78,14 +80,19 @@ public class RegisterActivity extends Activity {
 
         @Override
         public void onClick(View v) {
+            String passwordString = password.getText().toString();
+            String reenterPasswordString = reenterPassword.getText().toString();
             if(name.getText().toString().equals("")){
                 name.setError("Name cannot be empty");
             }
             else if(username.getText().toString().equals("")){
                 username.setError("Username cannot be empty");
             }
-            else if(password.getText().toString().equals("")){
+            else if(passwordString.equals("")){
                 password.setError("Password cannot be empty");
+            }
+            else if(reenterPasswordString.equals("")){
+                reenterPassword.setError("Re-enter Password cannot be empty");
             }
             else if(emailAddress.getText().toString().equals("")){
                 emailAddress.setError("emailAddress cannot be empty");
@@ -95,7 +102,9 @@ public class RegisterActivity extends Activity {
             }
             else if(gender.getCheckedRadioButtonId()==-1){
                 register.setError("Gender cannot be empty");
-            } else {
+            } else if (!passwordString.equals(reenterPasswordString)){
+                reenterPassword.setError("Passwords must match");
+            }else {
                 registerUser();
             }
         }
