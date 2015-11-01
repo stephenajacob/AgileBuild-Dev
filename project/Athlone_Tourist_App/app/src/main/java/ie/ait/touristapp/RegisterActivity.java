@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
+import ie.ait.touristapp.db.DatabaseHelper;
 import ie.ait.touristapp.user.Gender;
 import ie.ait.touristapp.user.User;
 import ie.ait.touristapp.user.UserBuilder;
@@ -18,8 +19,6 @@ import ie.ait.touristapp.user.UserBuilder;
  */
 public class RegisterActivity extends Activity {
 
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
     public static final String NAME_CANNOT_BE_EMPTY = "name cannot be empty";
     public static final String USERNAME_CANNOT_BE_EMPTY = "username cannot be empty";
     public static final String PASSWORD_CANNOT_BE_EMPTY = "password cannot be empty";
@@ -27,7 +26,8 @@ public class RegisterActivity extends Activity {
     public static final String AGE_CANNOT_BE_EMPTY = "age cannot be empty";
     public static final String GENDER_CANNOT_BE_EMPTY = "gender cannot be empty";
     public static final String PASSWORDS_MUST_MATCH = "passwords must match";
-    public static final String ALREADY_EXISTS = "%s %s already exists";
+    public static final String ALREADY_EXISTS_MESSAGE_TEMPLATE = "%s %s already exists";
+
     private TextView name, username, password, reenterPassword, emailAddress, age;
     private RadioGroup gender;
     private Button register;
@@ -107,11 +107,11 @@ public class RegisterActivity extends Activity {
             else if (!passwordString.equals(reenterPasswordString)){
                 reenterPassword.setError(PASSWORDS_MUST_MATCH);
             }
-            else if(dbHelper.valueExistsForColumnInTable(DatabaseHelper.USERS_TABLE_NAME, usernameString, USERNAME)){
-                username.setError(String.format(ALREADY_EXISTS, USERNAME, usernameString));
+            else if(dbHelper.valueExistsForColumnInTable(usernameString, DatabaseHelper.USERNAME_COLUMN, DatabaseHelper.USER_TABLE_NAME)){
+                username.setError(String.format(ALREADY_EXISTS_MESSAGE_TEMPLATE, DatabaseHelper.USERNAME_COLUMN, usernameString));
             }
-            else if(dbHelper.valueExistsForColumnInTable(DatabaseHelper.USERS_TABLE_NAME, emailAddressString, EMAIL)){
-                emailAddress.setError(String.format(ALREADY_EXISTS, EMAIL,emailAddressString));
+            else if(dbHelper.valueExistsForColumnInTable(emailAddressString, DatabaseHelper.EMAIL_COLUMN, DatabaseHelper.USER_TABLE_NAME)){
+                emailAddress.setError(String.format(ALREADY_EXISTS_MESSAGE_TEMPLATE, DatabaseHelper.EMAIL_COLUMN,emailAddressString));
             }
             else {
                 registerUser();
