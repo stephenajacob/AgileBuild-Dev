@@ -23,6 +23,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "tourist_app";
+    SQLiteDatabase db;
+
     private static final String USER_TABLE_CREATE_COMMAND = "create table user(" +
             "id integer primary key asc, " +
             "username text not null, " +
@@ -47,6 +49,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "DROP TABLE IF EXISTS"+ USER_TABLE_NAME;
         db.execSQL(query);
         this.onCreate(db);
+    }
+
+    public String searchPass(String username)
+    {
+        db=this.getReadableDatabase();
+        String query = "select username, password from "+USER_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        String a, b;
+        b="not found";
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getString(0);
+
+                if(a.equals(username))
+                {
+                    b = cursor.getString(1);
+                    break;
+                }
+
+            }
+            while(cursor.moveToNext());
+        }
+
+        return b;
     }
 
     public void insertUser(User user)

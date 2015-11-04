@@ -73,7 +73,7 @@ public class CurrentLocation extends FragmentActivity implements LocationListene
                     onLocationChanged(location);
                 }
                 locationManager.requestLocationUpdates(bestProvider, 20000, 0, this);
-                //setUpMap();
+                setUpMap();
             }
         }
     }
@@ -84,9 +84,9 @@ public class CurrentLocation extends FragmentActivity implements LocationListene
      * <p/>
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
-    //private void setUpMap() {
+    private void setUpMap() {
         //mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-    //}
+    }
 
     @Override
     public void onLocationChanged(Location location) {
