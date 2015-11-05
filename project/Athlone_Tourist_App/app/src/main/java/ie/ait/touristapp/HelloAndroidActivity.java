@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import ie.ait.touristapp.location.CurrentLocation;
 import ie.ait.touristapp.user.LoginActivity;
 
 
@@ -14,9 +15,6 @@ public class HelloAndroidActivity extends Activity {
 
     private static String TAG = "AthloneTouristApp";
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
-
-
-
 
     /**
      * Called when the activity is first created.
@@ -42,6 +40,17 @@ public class HelloAndroidActivity extends Activity {
 
         {
             Intent i = new Intent(HelloAndroidActivity.this, LoginActivity.class);
+            startActivity(i);
+        }
+
+    }
+
+    public void onButtonClick2(View v)
+    {
+        if(v.getId()==R.id.BLocation)
+
+        {
+            Intent i = new Intent(HelloAndroidActivity.this, CurrentLocation.class);
             startActivity(i);
         }
 

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.77"
+        android:layout_weight="0.65"
         android:background="@drawable/logo" />
 
     <Button
@@ -30,5 +30,14 @@
         android:onClick="openRegisterScreen"
         android:layout_weight="0.09"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Current Location"
+        android:id="@+id/BLocation"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:onClick="onButtonClick2" />
 
 </LinearLayout>
