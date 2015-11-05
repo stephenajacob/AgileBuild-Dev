@@ -26,8 +26,6 @@
 
         android:layout_toRightOf="@+id/button9"
         android:layout_alignParentBottom="true"
-        />
-
-    <!--put in myself-->
+        android:onClick="onButtonClick" />
 
 </RelativeLayout>
