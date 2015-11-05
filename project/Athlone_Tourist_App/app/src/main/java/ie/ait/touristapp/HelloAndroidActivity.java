@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import ie.ait.touristapp.R;
+
+import ie.ait.touristapp.location.CurrentLocation;
+import ie.ait.touristapp.user.LoginActivity;
+
 
 import ie.ait.touristapp.location.CurrentLocation;
 import ie.ait.touristapp.user.LoginActivity;

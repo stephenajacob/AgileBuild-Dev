@@ -74,8 +74,8 @@
         android:layout_height="wrap_content"
         android:text="Cancel"
         android:id="@+id/Bcancel"
-
         android:textColor="#ff000000"
+        android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/Blogin"
         android:onClick="onButtonClick" />
 </RelativeLayout>
