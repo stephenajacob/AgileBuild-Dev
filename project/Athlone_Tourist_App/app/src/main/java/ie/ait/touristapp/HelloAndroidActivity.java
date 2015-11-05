@@ -50,16 +50,6 @@ public class HelloAndroidActivity extends Activity {
 
     }
 
-    public void onButtonClick2(View v)
-    {
-        if(v.getId()==R.id.BLocation)
-
-        {
-            Intent i = new Intent(HelloAndroidActivity.this, CurrentLocation.class);
-            startActivity(i);
-        }
-
-    }
 
 }
 
