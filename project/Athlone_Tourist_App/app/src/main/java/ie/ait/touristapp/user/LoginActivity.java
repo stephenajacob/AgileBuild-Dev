@@ -12,6 +12,7 @@ import ie.ait.touristapp.HelloAndroidActivity;
 import ie.ait.touristapp.R;
 import ie.ait.touristapp.RegisterActivity;
 import ie.ait.touristapp.db.DatabaseHelper;
+import ie.ait.touristapp.location.CurrentLocation;
 
 
 /**
@@ -40,7 +41,7 @@ public class LoginActivity extends Activity{
 
             if(pass.equals(password))
             {
-                Intent i = new Intent(LoginActivity.this, HelloAndroidActivity.class);
+                Intent i = new Intent(LoginActivity.this, CurrentLocation.class);
                 i.putExtra("Username", str);
                 startActivity(i);
             }
@@ -51,14 +52,6 @@ public class LoginActivity extends Activity{
             }
 
         }
-        if(v.getId()==R.id.Bregister)
-        {
-            Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
-
-            startActivity(i);
-
-        }
-
         if(v.getId()==R.id.Bcancel)
         {
             finish();

@@ -14,7 +14,7 @@
         android:layout_weight="0.06" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Accomodation"
         android:id="@+id/button"
@@ -22,7 +22,7 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="111dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Live Music"
         android:id="@+id/Bcancel"
@@ -30,7 +30,7 @@
         android:layout_weight="0.06" />
 
     <Button
-        android:layout_width="110dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Night life"
         android:id="@+id/button3"
@@ -38,7 +38,7 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="107dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Historical"
         android:id="@+id/button4"
@@ -46,7 +46,7 @@
         android:layout_weight="0.06" />
 
     <Button
-        android:layout_width="105dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Activity"
         android:id="@+id/button5"
@@ -54,7 +54,7 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Food"
         android:id="@+id/button6"
@@ -63,11 +63,13 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="83dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:id="@+id/button7"
-        android:layout_gravity="right"
-        android:layout_weight="0.06" />
+        android:layout_weight="0.06"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"/>
 
 </LinearLayout>
