@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import ie.ait.touristapp.R;
+
+import ie.ait.touristapp.location.CurrentLocation;
+import ie.ait.touristapp.user.LoginActivity;
+
 
 import ie.ait.touristapp.location.CurrentLocation;
 import ie.ait.touristapp.user.LoginActivity;
@@ -45,16 +50,6 @@ public class HelloAndroidActivity extends Activity {
 
     }
 
-    public void onButtonClick2(View v)
-    {
-        if(v.getId()==R.id.BLocation)
-
-        {
-            Intent i = new Intent(HelloAndroidActivity.this, CurrentLocation.class);
-            startActivity(i);
-        }
-
-    }
 
 }
 
