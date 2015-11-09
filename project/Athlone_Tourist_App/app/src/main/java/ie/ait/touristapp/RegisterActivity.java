@@ -9,28 +9,32 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ie.ait.touristapp.db.DatabaseHelper;
 import ie.ait.touristapp.user.Gender;
 import ie.ait.touristapp.user.User;
 import ie.ait.touristapp.user.UserBuilder;
 
+/**
+ * Created by ethomev on 10/21/15.
+ */
 public class RegisterActivity extends Activity {
 
+    public static final String NAME_CANNOT_BE_EMPTY = "name cannot be empty";
+    public static final String USERNAME_CANNOT_BE_EMPTY = "username cannot be empty";
+    public static final String PASSWORD_CANNOT_BE_EMPTY = "password cannot be empty";
+    public static final String EMAIL_ADDRESS_CANNOT_BE_EMPTY = "emailAddress cannot be empty";
+    public static final String AGE_CANNOT_BE_EMPTY = "age cannot be empty";
+    public static final String GENDER_CANNOT_BE_EMPTY = "gender cannot be empty";
     public static final String PASSWORDS_MUST_MATCH = "passwords must match";
     public static final String ALREADY_EXISTS_MESSAGE_TEMPLATE = "%s %s already exists";
-    public static final String FIELD_CANNOT_BE_EMPTY = "field cannot be empty";
 
     private TextView name, username, password, reenterPassword, emailAddress, age;
-    private transient List<TextView> fields;
     private RadioGroup gender;
     private Button register;
     private DatabaseHelper dbHelper;
 
     @Override
-    public void onCreate(final Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         setViewFields();
@@ -39,39 +43,30 @@ public class RegisterActivity extends Activity {
     }
 
     private void setViewFields() {
-        fields = new ArrayList<>();
         name = (TextView) findViewById(R.id.name);
-        fields.add(name);
         username = (TextView) findViewById(R.id.username);
-        fields.add(username);
         password = (TextView) findViewById(R.id.password);
-        fields.add(password);
         reenterPassword = (TextView) findViewById(R.id.reenterPassword);
-        fields.add(reenterPassword);
         emailAddress = (TextView) findViewById(R.id.emailAddress);
-        fields.add(emailAddress);
         age = (TextView)findViewById(R.id.age);
-        fields.add(age);
         gender = (RadioGroup)findViewById(R.id.gender);
         register = (Button)findViewById(R.id.register);
-
-
     }
 
     public void registerUser(){
-        final User user = createUser();
+        User user = createUser();
         dbHelper.insertUser(user);
-        final Intent intent = new Intent(this, HelloAndroidActivity.class);
+        Intent intent = new Intent(this, HelloAndroidActivity.class);
         startActivity(intent);
     }
 
     private User createUser() {
-        final UserBuilder userBuilder= new UserBuilder();
-        final User user = userBuilder.setName(name.getText().toString())
-                    .setUsername( username.getText().toString())
-                    .setPassword(password.getText().toString())
-                    .setEmailAddress(emailAddress.getText().toString())
-                .setAge(Integer.valueOf(age.getText().toString())).build();
+        UserBuilder userBuilder= new UserBuilder();
+        User user = userBuilder.setName((String) name.getText().toString())
+                    .setUsername((String) username.getText().toString())
+                    .setPassword((String) password.getText().toString())
+                    .setEmailAddress((String) emailAddress.getText().toString())
+                    .setAge(new Integer(age.getText().toString())).build();
         if(gender.getCheckedRadioButtonId()==Gender.MALE.getValue()){
             user.setGender(Gender.MALE);
         } else {
@@ -83,35 +78,42 @@ public class RegisterActivity extends Activity {
     class CheckRegisterFieldsListener implements View.OnClickListener{
 
         @Override
-        public void onClick(final View view) {
-            final String usernameString = username.getText().toString();
-            final String passwordString = password.getText().toString();
-            final String reenterPasswordString = reenterPassword.getText().toString();
-            final String emailAddressString = emailAddress.getText().toString();
-            boolean fieldsFilled = true;
-            for(final TextView field: fields){
-                if(field.getText().toString().isEmpty()){
-                    field.setError(FIELD_CANNOT_BE_EMPTY);
-                    fieldsFilled = false;
-                }
+        public void onClick(View v) {
+            String usernameString = username.getText().toString();
+            String passwordString = password.getText().toString();
+            String reenterPasswordString = reenterPassword.getText().toString();
+            String emailAddressString = emailAddress.getText().toString();
+            if(name.getText().toString().isEmpty()){
+                name.setError(NAME_CANNOT_BE_EMPTY);
             }
-            if(gender.getCheckedRadioButtonId()==-1){
-                register.setError(FIELD_CANNOT_BE_EMPTY);
-                fieldsFilled = false;
+            else if(usernameString.isEmpty()){
+                username.setError(USERNAME_CANNOT_BE_EMPTY);
             }
-            if (!passwordString.equals(reenterPasswordString)){
+            else if(passwordString.isEmpty()){
+                password.setError(PASSWORD_CANNOT_BE_EMPTY);
+            }
+            else if(reenterPasswordString.isEmpty()){
+                reenterPassword.setError(PASSWORD_CANNOT_BE_EMPTY);
+            }
+            else if(emailAddressString.isEmpty()){
+                emailAddress.setError(EMAIL_ADDRESS_CANNOT_BE_EMPTY);
+            }
+            else if(age.getText().toString().isEmpty()){
+                age.setError(AGE_CANNOT_BE_EMPTY);
+            }
+            else if(gender.getCheckedRadioButtonId()==-1){
+                register.setError(GENDER_CANNOT_BE_EMPTY);
+            }
+            else if (!passwordString.equals(reenterPasswordString)){
                 reenterPassword.setError(PASSWORDS_MUST_MATCH);
-                fieldsFilled = false;
             }
-            if(dbHelper.valueExistsForColumnInTable(usernameString, DatabaseHelper.USERNAME_COLUMN, DatabaseHelper.USER_TABLE_NAME)){
+            else if(dbHelper.valueExistsForColumnInTable(usernameString, DatabaseHelper.USERNAME_COLUMN, DatabaseHelper.USER_TABLE_NAME)){
                 username.setError(String.format(ALREADY_EXISTS_MESSAGE_TEMPLATE, DatabaseHelper.USERNAME_COLUMN, usernameString));
-                fieldsFilled = false;
             }
-            if(dbHelper.valueExistsForColumnInTable(emailAddressString, DatabaseHelper.EMAIL_COLUMN, DatabaseHelper.USER_TABLE_NAME)){
+            else if(dbHelper.valueExistsForColumnInTable(emailAddressString, DatabaseHelper.EMAIL_COLUMN, DatabaseHelper.USER_TABLE_NAME)){
                 emailAddress.setError(String.format(ALREADY_EXISTS_MESSAGE_TEMPLATE, DatabaseHelper.EMAIL_COLUMN,emailAddressString));
-                fieldsFilled = false;
             }
-            if(fieldsFilled) {
+            else {
                 registerUser();
             }
         }
