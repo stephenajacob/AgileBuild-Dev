@@ -9,6 +9,8 @@ import android.widget.EditText;
 import ie.ait.touristapp.R;
 
 import ie.ait.touristapp.location.CurrentLocation;
+import ie.ait.touristapp.location.RefineSearchActivity;
+import ie.ait.touristapp.user.AppHomeActivity;
 import ie.ait.touristapp.user.LoginActivity;
 
 
@@ -44,12 +46,14 @@ public class HelloAndroidActivity extends Activity {
         if(v.getId()==R.id.Blog)
 
         {
-            Intent i = new Intent(HelloAndroidActivity.this, LoginActivity.class);
+            Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
         }
-
     }
 
-
+    public void openAppHomeScreen(View view){
+        Intent x = new Intent(this, RefineSearchActivity.class);
+        startActivity(x);
+    }
 }
 

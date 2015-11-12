@@ -9,6 +9,8 @@ import android.location.LocationManager;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -16,7 +18,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.CameraUpdateFactory ;
 
+import ie.ait.touristapp.HelloAndroidActivity;
 import ie.ait.touristapp.R;
+import ie.ait.touristapp.user.AppHomeActivity;
 
 public class CurrentLocation extends FragmentActivity implements LocationListener {
 
@@ -116,5 +120,4 @@ public class CurrentLocation extends FragmentActivity implements LocationListene
     public void onStatusChanged(String provider, int status, Bundle extras) {
         // TODO Auto-generated method stub
     }
-
 }

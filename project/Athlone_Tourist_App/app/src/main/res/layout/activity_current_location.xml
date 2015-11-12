@@ -26,4 +26,14 @@
 
     </fragment>
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refine Search Options"
+        android:id="@+id/refine"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:onClick="openAppHomeScreen" />
+
 </LinearLayout>
