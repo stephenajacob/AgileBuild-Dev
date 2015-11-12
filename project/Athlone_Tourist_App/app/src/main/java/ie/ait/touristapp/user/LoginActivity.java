@@ -28,7 +28,7 @@ public class LoginActivity extends Activity{
         setContentView(R.layout.main);
     }
 
-    public void onButtonClick(View v)
+    public void login(View v)
     {
         if(v.getId()==R.id.Blogin)
         {
@@ -52,14 +52,6 @@ public class LoginActivity extends Activity{
             }
 
         }
-        if(v.getId()==R.id.Bregister)
-        {
-            Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
-
-            startActivity(i);
-
-        }
-
         if(v.getId()==R.id.Bcancel)
         {
             finish();

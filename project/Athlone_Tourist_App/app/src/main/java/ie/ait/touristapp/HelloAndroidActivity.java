@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import ie.ait.touristapp.R;
 
+import ie.ait.touristapp.location.CurrentLocation;
+import ie.ait.touristapp.user.LoginActivity;
+
+
+import ie.ait.touristapp.location.CurrentLocation;
 import ie.ait.touristapp.user.LoginActivity;
 
 
@@ -14,9 +20,6 @@ public class HelloAndroidActivity extends Activity {
 
     private static String TAG = "AthloneTouristApp";
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
-
-
-
 
     /**
      * Called when the activity is first created.
@@ -46,6 +49,7 @@ public class HelloAndroidActivity extends Activity {
         }
 
     }
+
 
 }
 
