@@ -1,13 +1,16 @@
 package ie.ait.touristapp.filtering.impl;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import ie.ait.touristapp.db.DatabaseHelper;
 import ie.ait.touristapp.filtering.api.SuggestionFiltering;
@@ -18,12 +21,16 @@ import ie.ait.touristapp.user.User;
 public class SuggestionFilteringImpl implements SuggestionFiltering {
 
     public static final int TOP_FIVE_EXPERIENCE_TYPE_LIMIT = 5;
-    private final DatabaseHelper dbHelper;
-    private final User user;
+    private DatabaseHelper dbHelper;
+    private User user;
 
     public SuggestionFilteringImpl(DatabaseHelper dbHelper, User user){
         this.dbHelper = dbHelper;
         this.user = user;
+    }
+
+    public SuggestionFilteringImpl(){
+
     }
 
     @Override
@@ -31,7 +38,7 @@ public class SuggestionFilteringImpl implements SuggestionFiltering {
         final Set<ExperienceType> experienceTypes = getSetOfExperienceTypes(googleResults);
         final Map<ExperienceType, Integer> experienceTypesAverageRating = getExperienceTypesAverageRatingForUser(experienceTypes);
         final Set<ExperienceType> topFiveExperienceTypes = getTopFiveExperienceTypes(experienceTypesAverageRating);
-        List<GoogleResultMock> filteredResults = Collections.emptyList();
+        List<GoogleResultMock> filteredResults = new ArrayList<>();
         for(final GoogleResultMock result: googleResults){
             if(topFiveExperienceTypes.contains(result.getExperienceType())) {
                 filteredResults.add(result);
@@ -40,24 +47,28 @@ public class SuggestionFilteringImpl implements SuggestionFiltering {
         return filteredResults;
     }
 
-    private Set<ExperienceType> getTopFiveExperienceTypes(final Map<ExperienceType, Integer> experienceTypeAverageRatings) {
+    @VisibleForTesting
+    protected Set<ExperienceType> getTopFiveExperienceTypes(final Map<ExperienceType, Integer> experienceTypeAverageRatings) {
         final RatingValueComparator comparator = new RatingValueComparator(experienceTypeAverageRatings);
         final TreeMap<ExperienceType, Integer> sortedExperienceTypeAverageRatings = new TreeMap(comparator);
+        sortedExperienceTypeAverageRatings.putAll(experienceTypeAverageRatings);
         final Set<ExperienceType> sortedExperiences = sortedExperienceTypeAverageRatings.keySet();
-        Set<ExperienceType> topFiveExperienceTypes = Collections.emptySet();
+        Set<ExperienceType> topFiveExperienceTypes = new TreeSet<>();
         int count=0;
         for(ExperienceType experienceType: sortedExperiences){
             if(count== TOP_FIVE_EXPERIENCE_TYPE_LIMIT) {
                 break;
             }
             topFiveExperienceTypes.add(experienceType);
+            count++;
         }
         return topFiveExperienceTypes;
     }
 
     @NonNull
-    private Map<ExperienceType, Integer> getExperienceTypesAverageRatingForUser(final Set<ExperienceType> experienceTypes) {
-        Map<ExperienceType, Integer> experienceTypeAverageRatings = Collections.emptyMap();
+    @VisibleForTesting
+    protected Map<ExperienceType, Integer> getExperienceTypesAverageRatingForUser(final Set<ExperienceType> experienceTypes) {
+        Map<ExperienceType, Integer> experienceTypeAverageRatings = new HashMap<>();
         for(ExperienceType experienceType: experienceTypes){
             List<Rating> ratings = dbHelper.getExperienceTypeRatingsForThisUser(experienceType, user.getUsername());
             int averageRating = computeAverageRating(ratings);
@@ -67,39 +78,21 @@ public class SuggestionFilteringImpl implements SuggestionFiltering {
     }
 
     @NonNull
-    private Set<ExperienceType> getSetOfExperienceTypes(List<GoogleResultMock> googleResults) {
-        Set<ExperienceType> experienceTypes = Collections.emptySet();
+    @VisibleForTesting
+    protected Set<ExperienceType> getSetOfExperienceTypes(List<GoogleResultMock> googleResults) {
+        Set<ExperienceType> experienceTypes = new TreeSet<>();
         for(GoogleResultMock result: googleResults){
             experienceTypes.add(result.getExperienceType());
         }
         return experienceTypes;
     }
 
-    private int computeAverageRating(List<Rating> ratings) {
+    @VisibleForTesting
+    protected int computeAverageRating(List<Rating> ratings) {
         int totalRating = 0;
         for(Rating rating: ratings){
             totalRating+=rating.getRating();
         }
-        return totalRating/ratings.size();
-    }
-
-    class RatingValueComparator implements Comparator<ExperienceType> {
-
-        private final Map<ExperienceType, Integer> base;
-
-        public RatingValueComparator(Map base){
-            this.base = base;
-        }
-
-        @Override
-        public int compare(ExperienceType lhs, ExperienceType rhs) {
-            int result = 0;
-            if(base.get(lhs)>=base.get(rhs)) {
-                result = -1;
-            }else {
-                result = 1;
-            }
-            return result;
-        }
+        return ratings.size()==0 ? 0 : totalRating/ratings.size();
     }
 }
