@@ -7,6 +7,7 @@ public class RatingBuilder {
     private String experience;
     private int rating;
     private String username;
+    private ExperienceType experienceType;
 
     public RatingBuilder setExperience(String experience) {
         this.experience = experience;
@@ -23,7 +24,12 @@ public class RatingBuilder {
         return this;
     }
 
+    public RatingBuilder setExperienceType(ExperienceType experienceType){
+        this.experienceType = experienceType;
+        return this;
+    }
+
     public Rating build(){
-        return new Rating(experience,rating,username);
+        return new Rating(experience,rating,username,experienceType);
     }
 }

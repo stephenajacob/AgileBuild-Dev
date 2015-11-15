@@ -8,6 +8,12 @@ public class ReviewBuilder {
     private String body;
     private String username;
     private int rating;
+    private String experience;
+
+    public ReviewBuilder setExperience(String experience) {
+        this.experience = experience;
+        return this;
+    }
 
     public ReviewBuilder setTitle(String title) {
         this.title = title;
@@ -30,6 +36,6 @@ public class ReviewBuilder {
     }
 
     public Review build(){
-        return new Review(title,body,username, rating);
+        return new Review(title,body,username, rating, experience);
     }
 }

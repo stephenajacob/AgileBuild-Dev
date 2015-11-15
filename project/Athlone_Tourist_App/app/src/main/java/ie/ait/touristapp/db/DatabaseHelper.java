@@ -6,6 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.Collections;
+import java.util.List;
+
+import ie.ait.touristapp.rating.ExperienceType;
+import ie.ait.touristapp.rating.Rating;
+import ie.ait.touristapp.rating.RatingBuilder;
 import ie.ait.touristapp.user.User;
 
 /**
@@ -34,6 +40,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "gender text not null, " +
             "name text not null);";
 
+    private static final String RATING_TABLE_CREATE_COMMAND = "create table rating(" +
+            "id integer primary key asc, " +
+            "experience text not null, " +
+            "rating integer not null," +
+            "experienceType text not null," +
+            "username text not null);";
+
     public DatabaseHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,6 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(USER_TABLE_CREATE_COMMAND);
+        db.execSQL(RATING_TABLE_CREATE_COMMAND);
     }
 
     @Override
@@ -101,5 +115,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }else {
             return false;
         }
+    }
+
+    public List<Rating> getExperienceTypeRatingsForThisUser(final ExperienceType experienceType, final String username) {
+        final String query = String.format("SELECT * FROM RATING WHERE experienceType='%s' AND username='%s';", experienceType, username);
+        final SQLiteDatabase database=this.getReadableDatabase();
+        final Cursor cursor = database.rawQuery(query, null);
+
+        List<Rating> ratingList = Collections.emptyList();
+        if (cursor.moveToFirst()) {
+            RatingBuilder ratingBuilder = new RatingBuilder();
+            do {
+                Rating rating = ratingBuilder.setExperience(cursor.getString(1))
+                        .setRating(cursor.getInt(2))
+                        .setExperienceType(ExperienceType.valueOf(cursor.getString(3)))
+                        .setUsername(cursor.getString(4))
+                        .build();
+                ratingList.add(rating);
+            } while (cursor.moveToNext());
+        }
+
+        return ratingList;
     }
 }

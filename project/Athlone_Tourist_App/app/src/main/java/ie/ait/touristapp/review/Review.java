@@ -8,12 +8,14 @@ public class Review {
     private String body;
     private String username;
     private int rating;
+    private String experience;
 
-    public Review(String title, String body, String username, int rating) {
+    public Review(String title, String body, String username, int rating, String experience) {
         this.title = title;
         this.body = body;
         this.username = username;
         this.rating = rating;
+        this.experience = experience;
     }
 
     public String getTitle() {
@@ -46,5 +48,13 @@ public class Review {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 }
