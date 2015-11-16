@@ -25,12 +25,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by ethomev on 11/15/15.
- */
-public class SuggestionFilteringImplTest {
+public class TopFiveExperienceTypesForUserTest {
 
-    private SuggestionFilteringImpl filtering;
+    private TopFiveExperienceTypesForUser filtering;
     private RatingBuilder builder;
     private DatabaseHelper dbHelper;
     private User user;
@@ -39,7 +36,7 @@ public class SuggestionFilteringImplTest {
     public void setup(){
         dbHelper = mock(DatabaseHelper.class);
         user = mock(User.class);
-        filtering = new SuggestionFilteringImpl(dbHelper, user);
+        filtering = new TopFiveExperienceTypesForUser(dbHelper, user);
         builder = new RatingBuilder();
     }
 
