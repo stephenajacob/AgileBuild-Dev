@@ -9,12 +9,23 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Your Current Location" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refine Search Options"
+            android:id="@+id/refine"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:onClick="openAppHomeScreen" />
+
     </LinearLayout>
 
     <fragment
@@ -23,17 +34,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
     </fragment>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refine Search Options"
-        android:id="@+id/refine"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:onClick="openAppHomeScreen" />
 
 </LinearLayout>

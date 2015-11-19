@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".user.LoginActivity"/>
+        <activity android:name=".user.LoginActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,11 +39,11 @@
             android:name=".location.CurrentLocation"
             android:label="@string/title_activity_current_location" >
         </activity>
-
-        <activity android:name=".user.LoginActivity"/>
-
-        <activity android:name=".user.AppHomeActivity"/>
-
+        <activity android:name="user.LoginActivity" />
+        <activity android:name=".location.RefineSearchActivity" />
+        <activity android:name=".user.AppHomeActivity" />
+        <activity android:name=".location.Accommodation" >
+        </activity>
     </application>
 
 </manifest>
