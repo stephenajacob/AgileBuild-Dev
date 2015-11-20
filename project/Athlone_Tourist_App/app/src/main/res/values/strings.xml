@@ -5,4 +5,5 @@
     <string name="app_name">AthloneTouristApp</string>
     <string name="RegisterText">Enter your details below to register</string>
     <string name="title_activity_current_location">Map</string>
+    <string name="title_activity_music__map_">Map</string>
 </resources>

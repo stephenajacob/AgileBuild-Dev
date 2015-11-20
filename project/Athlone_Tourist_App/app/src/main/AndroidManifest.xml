@@ -44,6 +44,8 @@
         <activity android:name=".user.AppHomeActivity" />
         <activity android:name=".location.Accommodation" >
         </activity>
+        <activity android:name=".Music_Activity" >
+        </activity>
     </application>
 
 </manifest>
